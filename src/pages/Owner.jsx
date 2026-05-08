@@ -1,5 +1,5 @@
 const OWNER = {
-  id: '07_Jetwat(Chong/ชง)-JSD12',
+  id: '07_Jetwat(Chong/ชง)_JSD12',
   name: 'Jetwat',
   lastName: 'W.',
   bio: 'A passionate Full-Stack Developer currently studying in JSD12 bootcamp. Loves building clean UIs and learning new technologies every day.',
