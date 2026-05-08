@@ -115,7 +115,7 @@ function CreateUserForm({ onCreated }) {
 }
 
 export default function Home() {
-  const [mode, setMode] = useState('user')
+  const [mode, setMode] = useState(null)
   const [members, setMembers] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -173,24 +173,26 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Admin: create form */}
-      {isAdmin && <CreateUserForm onCreated={handleCreated} />}
+      {mode && (
+        <>
+          {isAdmin && <CreateUserForm onCreated={handleCreated} />}
 
-      {/* Members table */}
-      <div className="bg-blue-900 rounded-lg p-5">
-        <h2 className="text-amber-300 font-bold text-lg mb-4">
-          {isAdmin ? 'Admin Home Section' : 'User Home Section'}
-        </h2>
-        {loading ? (
-          <p className="text-amber-200 text-center py-4">Loading...</p>
-        ) : (
-          <MemberTable
-            members={members}
-            isAdmin={isAdmin}
-            onDelete={handleDelete}
-          />
-        )}
-      </div>
+          <div className="bg-blue-900 rounded-lg p-5">
+            <h2 className="text-amber-300 font-bold text-lg mb-4">
+              {isAdmin ? 'Admin Home Section' : 'User Home Section'}
+            </h2>
+            {loading ? (
+              <p className="text-amber-200 text-center py-4">Loading...</p>
+            ) : (
+              <MemberTable
+                members={members}
+                isAdmin={isAdmin}
+                onDelete={handleDelete}
+              />
+            )}
+          </div>
+        </>
+      )}
     </div>
   )
 }
