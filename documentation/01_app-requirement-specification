@@ -1,0 +1,20 @@
+## Requirement ของ React Assessment
+
+**เป้าหมาย:** สร้าง React App โดยใช้ React Router จัดการหน้าเว็บ และดึงข้อมูลจาก API (ใช้แค่ Simple Tailwind ในการตกแต่ง ไม่ต้องการให้โค้ดรก)
+
+**1. ระบบ Routing และ API:**
+
+- มี 2 หน้าหลักคือ Home (`/`) และ Owner (`/owner`)
+- **API Base URL:** `https://67eca027aa794fb3222e43e2.mockapi.io/members`
+
+**2. หน้า Home (****/****):**
+
+- ต้องมี 2 ปุ่มเพื่อสลับโหมดการแสดงผลด้านล่าง ได้แก่ "User Home Section" และ "Admin Home Section"
+- **ถ้าเลือกโหมด User:** แสดงตารางข้อมูลสมาชิก โดยดึงจาก API (`GET`) มีคอลัมน์ Name, Last Name, และ Position
+- **ถ้าเลือกโหมด Admin:**
+    - มีฟอร์ม "Create User Here" รับค่า Name, Last Name, Position และปุ่ม Save เพื่อส่งข้อมูลเข้า API (`POST`) เมื่อสร้างเสร็จตารางต้องอัปเดตทันทีโดยไม่ต้องรีเฟรช
+    - แสดงตารางข้อมูลเหมือนโหมด User แต่เพิ่มคอลัมน์ "Action" ที่มีปุ่ม "Delete" สำหรับลบข้อมูลในบรรทัดนั้นผ่าน API (`DELETE`)
+
+**3. หน้า Owner (****/owner****):**
+
+- เป็นหน้า Static ธรรมดา แสดง Profile ประกอบด้วย รหัส, ชื่อ-นามสกุล, รูปภาพ (ใช้ Placeholder ได้), และ Short Biography
