@@ -26,7 +26,7 @@ function MemberTable({ members, isAdmin, onDelete }) {
             className="even:bg-blue-900 odd:bg-blue-950 text-amber-50"
           >
             <td className="px-4 py-2 border border-blue-800">{member.name}</td>
-            <td className="px-4 py-2 border border-blue-800">{member.lastName}</td>
+            <td className="px-4 py-2 border border-blue-800">{member.lastname}</td>
             <td className="px-4 py-2 border border-blue-800">{member.position}</td>
             {isAdmin && (
               <td className="px-4 py-2 border border-blue-800">
@@ -46,7 +46,7 @@ function MemberTable({ members, isAdmin, onDelete }) {
 }
 
 function CreateUserForm({ onCreated }) {
-  const [form, setForm] = useState({ name: '', lastName: '', position: '' })
+  const [form, setForm] = useState({ name: '', lastname: '', position: '' })
   const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
@@ -55,7 +55,7 @@ function CreateUserForm({ onCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!form.name || !form.lastName || !form.position) return
+    if (!form.name || !form.lastname || !form.position) return
     setLoading(true)
     try {
       const res = await fetch(API_URL, {
@@ -65,7 +65,7 @@ function CreateUserForm({ onCreated }) {
       })
       const newMember = await res.json()
       onCreated(newMember)
-      setForm({ name: '', lastName: '', position: '' })
+      setForm({ name: '', lastname: '', position: '' })
     } finally {
       setLoading(false)
     }
@@ -87,8 +87,8 @@ function CreateUserForm({ onCreated }) {
           className="flex-1 px-3 py-2 rounded bg-blue-800 text-amber-50 placeholder-blue-400 border border-blue-700 focus:outline-none focus:border-amber-400"
         />
         <input
-          name="lastName"
-          value={form.lastName}
+          name="lastname"
+          value={form.lastname}
           onChange={handleChange}
           placeholder="Last Name"
           required
